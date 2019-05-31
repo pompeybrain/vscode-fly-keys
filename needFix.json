@@ -1,0 +1,22 @@
+[
+  {
+    "key": "x",
+    "command": "editor.action.clipboardCutAction",
+    "when": "editorTextFocus && extension.flyKeys.commandMode"
+  },
+  {
+    "key": "v",
+    "command": "editor.action.clipboardPasteAction",
+    "when": "editorTextFocus && extension.flyKeys.commandMode"
+  },
+  {
+    "key": "c",
+    "command": "editor.action.clipboardCopyAction",
+    "when": "editorTextFocus && extension.flyKeys.commandMode"
+  },
+  {
+    "key": "z",
+    "command": "editor.action.commentLine",
+    "when": "editorTextFocus && extension.flyKeys.commandMode"
+  }
+]

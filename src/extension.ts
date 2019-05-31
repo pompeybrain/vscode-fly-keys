@@ -1,0 +1,51 @@
+// The module 'vscode' contains the VS Code extensibility API
+// Import the module and reference it with the alias vscode in your code below
+import * as vscode from 'vscode';
+import {
+  window,
+  commands,
+  Disposable,
+  ExtensionContext,
+  StatusBarAlignment,
+  StatusBarItem,
+  TextDocument
+} from 'vscode';
+
+const globalState = {
+  commandActive: true
+};
+
+export function activate(context: vscode.ExtensionContext) {
+  context.subscriptions.push(
+    commands.registerCommand('extension.flyKeys.activeCommandMode', () => {
+      toggleCommandMode(true);
+    }),
+
+    commands.registerCommand('extension.flyKeys.deactiveCommandMode', () => {
+      toggleCommandMode(false);
+    })
+  );
+  toggleCommandMode(true);
+}
+
+// this method is called when your extension is deactivated
+export function deactivate() {}
+
+function toggleCommandMode(active: boolean) {
+  const editor = vscode.window.activeTextEditor;
+
+  if (!editor) {
+    return;
+  }
+
+  vscode.commands.executeCommand(
+    'setContext',
+    'extension.flyKeys.commandMode',
+    active
+  );
+
+  globalState.commandActive = active;
+  editor.options.cursorStyle = active
+    ? vscode.TextEditorCursorStyle.Block
+    : vscode.TextEditorCursorStyle.Line;
+}
