@@ -20,9 +20,20 @@ export function activate(context: vscode.ExtensionContext) {
     commands.registerCommand('extension.flyKeys.activeCommandMode', () => {
       toggleCommandMode(true);
     }),
-
     commands.registerCommand('extension.flyKeys.deactiveCommandMode', () => {
       toggleCommandMode(false);
+    }),
+    commands.registerCommand('extension.flyKeys.commentLine', () => {
+      vscode.commands.executeCommand('editor.action.commentLine');
+    }),
+    commands.registerCommand('extension.flyKeys.cut', () => {
+      vscode.commands.executeCommand('editor.action.clipboardCutAction');
+    }),
+    commands.registerCommand('extension.flyKeys.copy', () => {
+      vscode.commands.executeCommand('editor.action.clipboardCopyAction');
+    }),
+    commands.registerCommand('extension.flyKeys.paste', () => {
+      vscode.commands.executeCommand('editor.action.clipboardPasteAction');
     })
   );
   toggleCommandMode(true);
