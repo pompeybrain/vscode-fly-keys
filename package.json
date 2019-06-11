@@ -46,6 +46,11 @@
         "when": "editorTextFocus && extension.flyKeys.commandMode"
       },
       {
+        "key": "a",
+        "command": "editor.action.showHover",
+        "when": "editorTextFocus && extension.flyKeys.commandMode"
+      },
+      {
         "key": "d",
         "command": "deleteRight",
         "when": "editorTextFocus && extension.flyKeys.commandMode"
@@ -134,6 +139,16 @@
         "key": "v",
         "command": "extension.flyKeys.paste",
         "when": "editorTextFocus && extension.flyKeys.commandMode"
+      },
+      {
+        "key": ".",
+        "command": "editor.action.goToDeclaration",
+        "when": "editorTextFocus && extension.flyKeys.commandMode"
+      },
+      {
+        "key": ",",
+        "command": "workbench.action.navigateBack",
+        "when": "editorTextFocus && extension.flyKeys.commandMode"
       }
     ]
   },
@@ -141,6 +156,7 @@
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
+    "deploy": "npm run compile && rsync -a ~/workspace/fly-keys/ ~/.vscode/extensions/fly-keys/",
     "watch": "tsc -watch -p ./",
     "postinstall": "node ./node_modules/vscode/bin/install",
     "test": "npm run compile && node ./node_modules/vscode/bin/test"

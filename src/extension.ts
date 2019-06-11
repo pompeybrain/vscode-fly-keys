@@ -12,7 +12,8 @@ import {
 } from 'vscode';
 
 const globalState = {
-  commandActive: true
+  commandActive: true,
+  statusBarItem: window.createStatusBarItem(StatusBarAlignment.Right)
 };
 
 export function activate(context: vscode.ExtensionContext) {
@@ -36,6 +37,7 @@ export function activate(context: vscode.ExtensionContext) {
       vscode.commands.executeCommand('editor.action.clipboardPasteAction');
     })
   );
+
   toggleCommandMode(true);
 }
 
@@ -59,4 +61,7 @@ function toggleCommandMode(active: boolean) {
   editor.options.cursorStyle = active
     ? vscode.TextEditorCursorStyle.Block
     : vscode.TextEditorCursorStyle.Line;
+
+  globalState.statusBarItem.text = active ? 'FlyKeys: $(lock)' : 'FlyKeys: $(pencil)';
+  globalState.statusBarItem.show();
 }
