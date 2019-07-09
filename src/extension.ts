@@ -45,7 +45,8 @@ export function activate(context: vscode.ExtensionContext) {
 export function deactivate() {}
 
 function toggleCommandMode(active: boolean) {
-  const editor = vscode.window.activeTextEditor;
+  const editor = window.activeTextEditor;
+  const visibleEditors = window.visibleTextEditors;
 
   if (!editor) {
     return;
@@ -58,10 +59,14 @@ function toggleCommandMode(active: boolean) {
   );
 
   globalState.commandActive = active;
-  editor.options.cursorStyle = active
-    ? vscode.TextEditorCursorStyle.Block
-    : vscode.TextEditorCursorStyle.Line;
+  visibleEditors.forEach(e => {
+    e.options.cursorStyle = active
+      ? vscode.TextEditorCursorStyle.Block
+      : vscode.TextEditorCursorStyle.Line;
+  });
 
-  globalState.statusBarItem.text = active ? 'FlyKeys: $(lock)' : 'FlyKeys: $(pencil)';
+  globalState.statusBarItem.text = active
+    ? 'FlyKeys: $(lock)'
+    : 'FlyKeys: $(pencil)';
   globalState.statusBarItem.show();
 }

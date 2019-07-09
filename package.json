@@ -21,33 +21,18 @@
         "when": "editorTextFocus"
       },
       {
-        "key": "f",
-        "command": "extension.flyKeys.deactiveCommandMode",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "i",
-        "command": "cursorUp",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "k",
-        "command": "cursorDown",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "j",
-        "command": "cursorLeft",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "l",
-        "command": "cursorRight",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
         "key": "a",
         "command": "editor.action.showHover",
+        "when": "editorTextFocus && extension.flyKeys.commandMode"
+      },
+      {
+        "key": "b",
+        "command": "editor.fold",
+        "when": "editorTextFocus && extension.flyKeys.commandMode"
+      },
+      {
+        "key": "c",
+        "command": "extension.flyKeys.copy",
         "when": "editorTextFocus && extension.flyKeys.commandMode"
       },
       {
@@ -61,8 +46,38 @@
         "when": "editorTextFocus && extension.flyKeys.commandMode"
       },
       {
+        "key": "f",
+        "command": "extension.flyKeys.deactiveCommandMode",
+        "when": "editorTextFocus && extension.flyKeys.commandMode"
+      },
+      {
         "key": "h",
         "command": "cursorHome",
+        "when": "editorTextFocus && extension.flyKeys.commandMode"
+      },
+      {
+        "key": "i",
+        "command": "cursorUp",
+        "when": "editorTextFocus && extension.flyKeys.commandMode"
+      },
+      {
+        "key": "j",
+        "command": "cursorLeft",
+        "when": "editorTextFocus && extension.flyKeys.commandMode"
+      },
+      {
+        "key": "k",
+        "command": "cursorDown",
+        "when": "editorTextFocus && extension.flyKeys.commandMode"
+      },
+      {
+        "key": "l",
+        "command": "cursorRight",
+        "when": "editorTextFocus && extension.flyKeys.commandMode"
+      },
+      {
+        "key": "m",
+        "command": "editor.unfold",
         "when": "editorTextFocus && extension.flyKeys.commandMode"
       },
       {
@@ -131,11 +146,6 @@
         "when": "editorTextFocus && extension.flyKeys.commandMode"
       },
       {
-        "key": "c",
-        "command": "extension.flyKeys.copy",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
         "key": "v",
         "command": "extension.flyKeys.paste",
         "when": "editorTextFocus && extension.flyKeys.commandMode"
@@ -156,7 +166,7 @@
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
-    "deploy": "npm run compile && rsync -a ~/workspace/fly-keys/ ~/.vscode/extensions/fly-keys/",
+    "deploy": "npm run compile && rsync -a ./ ~/.vscode/extensions/fly-keys/",
     "watch": "tsc -watch -p ./",
     "postinstall": "node ./node_modules/vscode/bin/install",
     "test": "npm run compile && node ./node_modules/vscode/bin/test"
