@@ -27,7 +27,7 @@
       },
       {
         "key": "b",
-        "command": "editor.fold",
+        "command": "editor.action.formatDocument",
         "when": "editorTextFocus && extension.flyKeys.commandMode"
       },
       {
@@ -48,6 +48,11 @@
       {
         "key": "f",
         "command": "extension.flyKeys.deactiveCommandMode",
+        "when": "editorTextFocus && extension.flyKeys.commandMode"
+      },
+      {
+        "key": "g",
+        "command": "actions.find",
         "when": "editorTextFocus && extension.flyKeys.commandMode"
       },
       {
@@ -86,13 +91,13 @@
         "when": "editorTextFocus && extension.flyKeys.commandMode"
       },
       {
-        "key": "p",
-        "command": "scrollPageUp",
+        "key": "o",
+        "command": "cursorWordRight",
         "when": "editorTextFocus && extension.flyKeys.commandMode"
       },
       {
-        "key": "o",
-        "command": "cursorWordRight",
+        "key": "p",
+        "command": "scrollPageUp",
         "when": "editorTextFocus && extension.flyKeys.commandMode"
       },
       {
@@ -121,9 +126,29 @@
         "when": "editorTextFocus && extension.flyKeys.commandMode"
       },
       {
+        "key": "v",
+        "command": "extension.flyKeys.paste",
+        "when": "editorTextFocus && extension.flyKeys.commandMode"
+      },
+      {
+        "key": "w",
+        "command": "extension.flyKeys.commandW",
+        "when": "editorTextFocus && extension.flyKeys.commandMode"
+      },
+      {
+        "key": "x",
+        "command": "extension.flyKeys.cut",
+        "when": "editorTextFocus && extension.flyKeys.commandMode"
+      },
+      {
         "key": "y",
         "command": "undo",
         "when": "editorTextFocus && extension.flyKeys.commandMode"
+      },
+      {
+        "key": "z",
+        "command": "extension.flyKeys.commentLine",
+        "when": "editorTextFocus && extension.flyKeys.commandMode && !editorReadonly"
       },
       {
         "key": "/",
@@ -133,21 +158,6 @@
       {
         "key": ";",
         "command": "cursorEnd",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "z",
-        "command": "extension.flyKeys.commentLine",
-        "when": "editorTextFocus && extension.flyKeys.commandMode && !editorReadonly"
-      },
-      {
-        "key": "x",
-        "command": "extension.flyKeys.cut",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "v",
-        "command": "extension.flyKeys.paste",
         "when": "editorTextFocus && extension.flyKeys.commandMode"
       },
       {

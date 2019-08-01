@@ -35,6 +35,10 @@ export function activate(context: vscode.ExtensionContext) {
     }),
     commands.registerCommand('extension.flyKeys.paste', () => {
       vscode.commands.executeCommand('editor.action.clipboardPasteAction');
+    }),
+    commands.registerCommand('extension.flyKeys.commandW', () => {}),
+    window.onDidChangeActiveTextEditor(() => {
+      toggleCommandMode(true);
     })
   );
 
@@ -64,7 +68,6 @@ function toggleCommandMode(active: boolean) {
       ? vscode.TextEditorCursorStyle.Block
       : vscode.TextEditorCursorStyle.Line;
   });
-
   globalState.statusBarItem.text = active
     ? 'FlyKeys: $(lock)'
     : 'FlyKeys: $(pencil)';
