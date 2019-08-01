@@ -52,7 +52,7 @@
       },
       {
         "key": "g",
-        "command": "actions.find",
+        "command": "extension.flyKeys.search",
         "when": "editorTextFocus && extension.flyKeys.commandMode"
       },
       {
