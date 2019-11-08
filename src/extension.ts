@@ -39,6 +39,12 @@ export function activate(context: vscode.ExtensionContext) {
     commands.registerCommand('extension.flyKeys.search', () => {
       vscode.commands.executeCommand('actions.find');
     }),
+    commands.registerCommand('extension.flyKeys.gotoDeclaration', () => {
+      vscode.commands.executeCommand('editor.action.goToDeclaration');
+    }),
+    commands.registerCommand('extension.flyKeys.gotoBack', () => {
+      vscode.commands.executeCommand('workbench.action.navigateBack');
+    }),
     commands.registerCommand('extension.flyKeys.commandW', () => {}),
     window.onDidChangeActiveTextEditor(() => {
       toggleCommandMode(true);

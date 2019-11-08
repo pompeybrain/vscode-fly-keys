@@ -162,12 +162,12 @@
       },
       {
         "key": ".",
-        "command": "editor.action.goToDeclaration",
+        "command": "extension.flyKeys.gotoDeclaration",
         "when": "editorTextFocus && extension.flyKeys.commandMode"
       },
       {
         "key": ",",
-        "command": "workbench.action.navigateBack",
+        "command": "extension.flyKeys.gotoBack",
         "when": "editorTextFocus && extension.flyKeys.commandMode"
       }
     ]
