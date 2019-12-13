@@ -1,22 +1,32 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import {
-  window,
-  commands,
-  Disposable,
-  ExtensionContext,
-  StatusBarAlignment,
-  StatusBarItem,
-  TextDocument
-} from 'vscode';
+import { window, commands, StatusBarAlignment } from 'vscode';
 
 const globalState = {
   commandActive: true,
-  statusBarItem: window.createStatusBarItem(StatusBarAlignment.Right)
+  statusBarItem: window.createStatusBarItem(StatusBarAlignment.Left)
 };
 
 export function activate(context: vscode.ExtensionContext) {
+  let disposable = vscode.commands.registerCommand('type', async args => {
+    const editor = window.activeTextEditor;
+    let text = args.text;
+    if (editor && globalState.commandActive) {
+      let command = getCommandConfig(text);
+      console.log(
+        `type: ${text} -> key: flyKeys.command.${text} -> execute  command: ${command}`
+      );
+      if (command) {
+        await vscode.commands.executeCommand(command);
+      }
+    } else {
+      await vscode.commands.executeCommand('default:type', { text });
+    }
+  });
+
+  context.subscriptions.push(disposable);
+
   context.subscriptions.push(
     commands.registerCommand('extension.flyKeys.activeCommandMode', () => {
       toggleCommandMode(true);
@@ -24,28 +34,6 @@ export function activate(context: vscode.ExtensionContext) {
     commands.registerCommand('extension.flyKeys.deactiveCommandMode', () => {
       toggleCommandMode(false);
     }),
-    commands.registerCommand('extension.flyKeys.commentLine', () => {
-      vscode.commands.executeCommand('editor.action.commentLine');
-    }),
-    commands.registerCommand('extension.flyKeys.cut', () => {
-      vscode.commands.executeCommand('editor.action.clipboardCutAction');
-    }),
-    commands.registerCommand('extension.flyKeys.copy', () => {
-      vscode.commands.executeCommand('editor.action.clipboardCopyAction');
-    }),
-    commands.registerCommand('extension.flyKeys.paste', () => {
-      vscode.commands.executeCommand('editor.action.clipboardPasteAction');
-    }),
-    commands.registerCommand('extension.flyKeys.search', () => {
-      vscode.commands.executeCommand('actions.find');
-    }),
-    commands.registerCommand('extension.flyKeys.gotoDeclaration', () => {
-      vscode.commands.executeCommand('editor.action.goToDeclaration');
-    }),
-    commands.registerCommand('extension.flyKeys.gotoBack', () => {
-      vscode.commands.executeCommand('workbench.action.navigateBack');
-    }),
-    commands.registerCommand('extension.flyKeys.commandW', () => {}),
     window.onDidChangeActiveTextEditor(() => {
       toggleCommandMode(true);
     })
@@ -77,8 +65,15 @@ function toggleCommandMode(active: boolean) {
       ? vscode.TextEditorCursorStyle.Block
       : vscode.TextEditorCursorStyle.Line;
   });
-  globalState.statusBarItem.text = active
-    ? 'FlyKeys: $(lock)'
-    : 'FlyKeys: $(pencil)';
+  globalState.statusBarItem.text = active ? '$(lock)' : '$(pencil)';
   globalState.statusBarItem.show();
+}
+
+function getCommandConfig(key: string) {
+  if (key === '.') {
+    key = 'dot'; // special handler .
+  }
+  let commandsMap = vscode.workspace.getConfiguration('flyKeys.command');
+  let command = commandsMap[key];
+  return command;
 }

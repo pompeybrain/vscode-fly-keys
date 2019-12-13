@@ -14,160 +14,165 @@
     "onCommand:type"
   ],
   "contributes": {
+    "configuration": {
+      "title": "FlyKeys",
+      "properties": {
+        "flyKeys.command.a": {
+          "type": "string",
+          "default": "editor.action.showHover",
+          "description": "in command mode type a excute command"
+        },
+        "flyKeys.command.b": {
+          "type": "string",
+          "default": "editor.action.formatDocument",
+          "description": "in command mode type b excute command"
+        },
+        "flyKeys.command.c": {
+          "type": "string",
+          "default": "editor.action.clipboardCopyAction",
+          "description": "in command mode type c  excute command"
+        },
+        "flyKeys.command.d": {
+          "type": "string",
+          "default": "deleteRight",
+          "description": "in command mode type d excute command"
+        },
+        "flyKeys.command.e": {
+          "type": "string",
+          "default": "deleteWordLeft",
+          "description": "in command mode type e excute command"
+        },
+        "flyKeys.command.g": {
+          "type": "string",
+          "default": "actions.find",
+          "description": "in command mode type g excute command"
+        },
+        "flyKeys.command.h": {
+          "type": "string",
+          "default": "cursorHome",
+          "description": "in command mode type h excute command"
+        },
+        "flyKeys.command.i": {
+          "type": "string",
+          "default": "cursorUp",
+          "description": "in command mode type i excute command"
+        },
+        "flyKeys.command.j": {
+          "type": "string",
+          "default": "cursorLeft",
+          "description": "in command mode type j excute command"
+        },
+        "flyKeys.command.k": {
+          "type": "string",
+          "default": "cursorDown",
+          "description": "in command mode type k excute command"
+        },
+        "flyKeys.command.l": {
+          "type": "string",
+          "default": "cursorRight",
+          "description": "in command mode type l excute command"
+        },
+        "flyKeys.command.m": {
+          "type": "string",
+          "default": "editor.unfold",
+          "description": "in command mode type m excute command"
+        },
+        "flyKeys.command.n": {
+          "type": "string",
+          "default": "scrollPageDown",
+          "description": "in command mode type n excute command"
+        },
+        "flyKeys.command.o": {
+          "type": "string",
+          "default": "cursorWordRight",
+          "description": "in command mode type o excute command"
+        },
+        "flyKeys.command.p": {
+          "type": "string",
+          "default": "scrollPageUp",
+          "description": "in command mode type p excute command"
+        },
+        "flyKeys.command.q": {
+          "type": "string",
+          "default": "workbench.action.files.save",
+          "description": "in command mode type q excute command"
+        },
+        "flyKeys.command.r": {
+          "type": "string",
+          "default": "deleteWordRight",
+          "description": "in command mode type r excute command"
+        },
+        "flyKeys.command.s": {
+          "type": "string",
+          "default": "editor.action.smartSelect.grow",
+          "description": "in command mode type s excute command"
+        },
+        "flyKeys.command.t": {
+          "type": "string",
+          "default": "cancelSelection",
+          "description": "in command mode type t excute command"
+        },
+        "flyKeys.command.u": {
+          "type": "string",
+          "default": "cursorWordLeft",
+          "description": "in command mode type u excute command"
+        },
+        "flyKeys.command.v": {
+          "type": "string",
+          "default": "editor.action.clipboardPasteAction",
+          "description": "in command mode type v excute command"
+        },
+        "flyKeys.command.w": {
+          "type": "string",
+          "default": "",
+          "description": "in command mode type w excute command"
+        },
+        "flyKeys.command.x": {
+          "type": "string",
+          "default": "editor.action.clipboardCutAction",
+          "description": "in command mode type x excute command"
+        },
+        "flyKeys.command.y": {
+          "type": "string",
+          "default": "undo",
+          "description": "in command mode type y excute command"
+        },
+        "flyKeys.command.z": {
+          "type": "string",
+          "default": "editor.action.commentLine",
+          "description": "in command mode type z excute command"
+        },
+        "flyKeys.command./": {
+          "type": "string",
+          "default": "editor.action.jumpToBracket",
+          "description": "in command mode type / excute command"
+        },
+        "flyKeys.command.;": {
+          "type": "string",
+          "default": "cursorEnd",
+          "description": "in command mode type ; excute command"
+        },
+        "flyKeys.command.,": {
+          "type": "string",
+          "default": "workbench.action.navigateBack",
+          "description": "in command mode type , excute command"
+        },
+        "flyKeys.command.dot": {
+          "type": "string",
+          "default": "editor.action.goToDeclaration",
+          "description": "in command mode type , excute command"
+        }
+      }
+    },
     "keybindings": [
       {
-        "key": "cmd+space",
+        "key": "escape",
         "command": "extension.flyKeys.activeCommandMode",
         "when": "editorTextFocus"
       },
       {
-        "key": "a",
-        "command": "editor.action.showHover",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "b",
-        "command": "editor.action.formatDocument",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "c",
-        "command": "extension.flyKeys.copy",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "d",
-        "command": "deleteRight",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "e",
-        "command": "deleteWordLeft",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
         "key": "f",
         "command": "extension.flyKeys.deactiveCommandMode",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "g",
-        "command": "extension.flyKeys.search",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "h",
-        "command": "cursorHome",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "i",
-        "command": "cursorUp",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "j",
-        "command": "cursorLeft",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "k",
-        "command": "cursorDown",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "l",
-        "command": "cursorRight",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "m",
-        "command": "editor.unfold",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "n",
-        "command": "scrollPageDown",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "o",
-        "command": "cursorWordRight",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "p",
-        "command": "scrollPageUp",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "q",
-        "command": "workbench.action.files.save",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "r",
-        "command": "deleteWordRight",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "s",
-        "command": "editor.action.smartSelect.grow",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "t",
-        "command": "cancelSelection",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "u",
-        "command": "cursorWordLeft",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "v",
-        "command": "extension.flyKeys.paste",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "w",
-        "command": "extension.flyKeys.commandW",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "x",
-        "command": "extension.flyKeys.cut",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "y",
-        "command": "undo",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": "z",
-        "command": "extension.flyKeys.commentLine",
-        "when": "editorTextFocus && extension.flyKeys.commandMode && !editorReadonly"
-      },
-      {
-        "key": "/",
-        "command": "editor.action.jumpToBracket",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": ";",
-        "command": "cursorEnd",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": ".",
-        "command": "extension.flyKeys.gotoDeclaration",
-        "when": "editorTextFocus && extension.flyKeys.commandMode"
-      },
-      {
-        "key": ",",
-        "command": "extension.flyKeys.gotoBack",
         "when": "editorTextFocus && extension.flyKeys.commandMode"
       }
     ]
