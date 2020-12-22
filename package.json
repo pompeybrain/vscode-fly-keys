@@ -4,6 +4,8 @@
   "description": "effective modal editing",
   "license": "MIT",
   "version": "0.1.0",
+  "publisher": "pompeybrain",
+  "repository": "https://github.com/pompeybrain/vscode-fly-keys",
   "engines": {
     "vscode": "^1.32.0"
   },
